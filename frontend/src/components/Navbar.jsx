@@ -1,5 +1,10 @@
 import React from "react";
-import { SignInButton, SignUpButton, UserButton } from "@clerk/clerk-react";
+import {
+  SignInButton,
+  UserButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 
 const Navbar = () => {
   const navLinks = [
@@ -31,16 +36,14 @@ const Navbar = () => {
         }
       `}
     >
-      {/* Logo */}
       <a
         href="/"
         className="text-2xl font-bold tracking-wide flex items-center gap-2 py-4 md:py-6 text-[#2C3E50]"
       >
         <span className="text-[#3AAFA9]">Spiritual</span>
-        <span> Sikkim</span>
+        <span>Sikkim</span>
       </a>
 
-      {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-6 lg:gap-10">
         {navLinks.map((link, i) => (
           <a
@@ -54,24 +57,23 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Desktop Right */}
       <div className="hidden md:flex items-center gap-4">
-        <SignInButton>
-          <button className="px-6 py-2.5 rounded-full ml-4 font-medium bg-[#3AAFA9] text-white transition-all duration-500 hover:bg-[#FF6F61]">
-            Sign In
-          </button>
-        </SignInButton>
-        <SignUpButton>
-          <button className="px-6 py-2.5 rounded-full ml-2 font-medium bg-[#FF6F61] text-white transition-all duration-500 hover:bg-[#3AAFA9]">
-            Sign Up
-          </button>
-        </SignUpButton>
-        {/* Optional: show user info if logged in */}
-        <UserButton />
+        <SignedOut>
+          <SignInButton mode="modal">
+            <button className="px-6 py-2.5 rounded-full ml-4 font-medium bg-[#3AAFA9] text-white transition-all duration-500 hover:bg-[#FF6F61]">
+              Get Started
+            </button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
 
-      {/* Mobile Menu Button */}
       <div className="flex items-center gap-3 md:hidden">
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
         <svg
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="h-7 w-7 cursor-pointer text-[#2C3E50]"
@@ -86,7 +88,6 @@ const Navbar = () => {
         </svg>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`fixed top-0 left-0 w-full h-screen bg-[#ECECEC] text-base flex flex-col md:hidden items-center justify-center gap-6 font-medium text-[#2C3E50] transition-all duration-500 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -119,16 +120,13 @@ const Navbar = () => {
           </a>
         ))}
 
-        <SignInButton>
-          <button className="bg-[#3AAFA9] text-white px-8 py-2.5 rounded-full font-medium hover:bg-[#FF6F61] transition-all duration-300">
-            Sign In
-          </button>
-        </SignInButton>
-        <SignUpButton>
-          <button className="bg-[#FF6F61] text-white px-8 py-2.5 rounded-full font-medium hover:bg-[#3AAFA9] transition-all duration-300">
-            Sign Up
-          </button>
-        </SignUpButton>
+        <SignedOut>
+          <SignInButton mode="modal">
+            <button className="bg-[#3AAFA9] text-white px-8 py-2.5 rounded-full font-medium hover:bg-[#FF6F61] transition-all duration-300">
+              Get Started
+            </button>
+          </SignInButton>
+        </SignedOut>
       </div>
     </nav>
   );
