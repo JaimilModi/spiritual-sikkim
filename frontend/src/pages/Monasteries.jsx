@@ -35,7 +35,7 @@ const Fullscreen3D = () => {
         <directionalLight position={[5, 5, 5]} intensity={1} />
 
         <AutoRotate>
-          <Model scale={1} position={[0, -1, 0]} />
+          <Model scale={1} position={[0, -0.5, 0]} />
         </AutoRotate>
 
         <OrbitControls
