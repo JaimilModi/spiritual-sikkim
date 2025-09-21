@@ -1,74 +1,76 @@
-import React, { useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
-import Model from "../components/Model";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Fullscreen3D = () => {
-  const containerRef = useRef();
-  const [isFullscreen, setIsFullscreen] = useState(false);
+import nathulaImg from "../assets/Nathula-Pass.png";
+import ravanglaImg from "../assets/Ravangla-buddga-park.png";
+import rankaImg from "../assets/ranka_monastery.png";
+import gangtokImg from "../assets/landing_image.png";
 
-  const handleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      containerRef.current.requestFullscreen();
-      setIsFullscreen(true);
-    } else {
-      document.exitFullscreen();
-      setIsFullscreen(false);
-    }
-  };
+const locationsData = [
+  {
+    id: "nathula",
+    name: "Nathula Pass",
+    description:
+      "Historic and scenic pass on the Indo-China border, surrounded by majestic mountains.",
+    imageUrl: nathulaImg,
+  },
+  {
+    id: "ravangla",
+    name: "Ravangla Buddha Park",
+    description:
+      "A serene place with the giant Buddha statue and lush greenery.",
+    imageUrl: ravanglaImg,
+  },
+  {
+    id: "ranka",
+    name: "Ranka Monastery",
+    description:
+      "Peaceful monastery known for its spiritual atmosphere and architecture.",
+    imageUrl: rankaImg,
+  },
+  {
+    id: "gangtok",
+    name: "Gangtok City View",
+    description: "Panoramic view of Gangtok city amidst mountains and rivers.",
+    imageUrl: gangtokImg,
+  },
+];
+
+const LocationCard = ({ location }) => {
+  const navigate = useNavigate();
 
   return (
     <div
-      ref={containerRef}
-      className="relative w-full min-h-screen bg-gradient-to-r from-[#3AAFA9]/20 via-[#FF6F61]/20 to-[#3AAFA9]/20 flex items-center justify-center overflow-hidden px-6"
+      onClick={() => navigate(`/location/${location.id}`)}
+      className="relative rounded-xl overflow-hidden cursor-pointer group shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
     >
-      <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-[#3AAFA9]/20 animate-pulse"></div>
-      <div className="absolute top-1/3 right-20 w-28 h-28 rounded-full bg-[#FF6F61]/20 animate-pulse delay-500"></div>
-      <div className="absolute bottom-1/4 left-16 w-24 h-24 rounded-full bg-[#3AAFA9]/10 animate-pulse delay-1000"></div>
-      <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-[#FF6F61]/10 animate-pulse delay-1500"></div>
-
-      <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-10 z-20">
-        <div className="w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
-          <Canvas camera={{ position: [0, 1, 3], fov: 50 }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[5, 5, 5]} intensity={1} />
-
-            <AutoRotate>
-              <Model scale={1} position={[0, -0.5, 0]} />
-            </AutoRotate>
-
-            <OrbitControls
-              enableZoom={true}
-              enablePan={false}
-              rotateSpeed={0.7}
-              zoomSpeed={0.5}
-            />
-            <Environment preset="sunset" />
-          </Canvas>
-        </div>
-
-        <div className="w-full md:w-1/2 text-center md:text-left text-[#2C3E50]">
-          <h1 className="text-3xl font-bold">Rumtek Monastery</h1>
-          <p className="mt-4 text-lg leading-relaxed">
-            Discover the spiritual and cultural essence of Rumtek Monastery, the
-            seat of the Karmapa in Sikkim. Nestled in the Himalayas, it is known
-            for its stunning architecture, golden stupa, and peaceful
-            surroundings that attract pilgrims and travelers worldwide.
-          </p>
-        </div>
+      <img
+        src={location.imageUrl}
+        alt={location.name}
+        className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-500"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute bottom-4 left-4 text-white">
+        <h2 className="text-2xl font-bold">{location.name}</h2>
+        <p className="text-sm mt-1 max-w-xs">{location.description}</p>
       </div>
     </div>
   );
 };
 
-const AutoRotate = ({ children }) => {
-  const ref = useRef();
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.y += delta * 0.2;
-    }
-  });
-  return <group ref={ref}>{children}</group>;
+const SikkimImageGrid = () => {
+  return (
+    <div className="bg-gray-50 min-h-screen p-8 pt-28">
+      <h1 className="text-4xl font-bold text-gray-800 text-center mb-12">
+        Discover the Beauty of Sikkim
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+        {locationsData.map((location) => (
+          <LocationCard key={location.id} location={location} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default Fullscreen3D;
+export default SikkimImageGrid;
