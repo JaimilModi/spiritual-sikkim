@@ -49,7 +49,7 @@ const Navbar = () => {
           <a
             key={i}
             href={link.path}
-            className="group flex flex-col gap-0.5 text-[#2C3E50]"
+            className="group flex flex-col gap-0.5 text-[#211c17]"
           >
             {link.name}
             <div className="bg-[#FF6F61] h-0.5 w-0 group-hover:w-full transition-all duration-300" />
