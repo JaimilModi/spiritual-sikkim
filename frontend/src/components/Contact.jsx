@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
 import image2 from "../assets/image2.png";
 
 const Contact = () => {
@@ -22,88 +21,119 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gray-50 py-16 px-6 md:px-20">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    
+    <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-24 px-6 md:px-20">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+
+        {/* Left: Official Illustration */}
         <motion.div
-          initial={{ x: -50, opacity: 0 }}
+          initial={{ x: -80, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
           className="flex justify-center"
         >
-          <img
+          <motion.img
             src={image2}
-            alt="Contact Illustration"
-            className="rounded-2xl shadow-lg max-w-md w-full hover:scale-105 transition-transform duration-500"
+            alt="Official Contact Illustration"
+            className="rounded-2xl shadow-2xl max-w-md w-full"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
 
-     
+        {/* Right: Contact Form */}
         <motion.div
-          initial={{ x: 50, opacity: 0 }}
+          initial={{ x: 80, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="bg-white shadow-lg rounded-2xl p-8 md:p-10"
+          className="bg-white shadow-2xl rounded-3xl p-10 md:p-14"
         >
-          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-[#2C3E50]">
+          {/* Header */}
+          <h1 className="text-4xl font-bold mb-4 text-center text-[#2C3E50]">
             Contact Us
           </h1>
-          <p className="text-center text-gray-600 mb-8">
-            Have questions or feedback? Fill out the form below and we’ll get in
-            touch with you soon.
+          <p className="text-center text-gray-600 mb-12 max-w-md mx-auto">
+            Reach out to the Monastery360 team for any queries, feedback, or partnership inquiries.  
+            As an official initiative under Sikkim Tourism, your input is highly valued.
           </p>
 
+          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-gray-700 mb-2">Name</label>
+            <motion.div whileFocus={{ scale: 1.02 }}>
+              <label className="block text-gray-700 mb-2 font-medium">Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A085]"
+                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A085] shadow-sm"
                 placeholder="Enter your name"
               />
-            </div>
+            </motion.div>
 
-            <div>
-              <label className="block text-gray-700 mb-2">Email</label>
+            <motion.div whileFocus={{ scale: 1.02 }}>
+              <label className="block text-gray-700 mb-2 font-medium">Email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A085]"
+                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A085] shadow-sm"
                 placeholder="Enter your email"
               />
-            </div>
+            </motion.div>
 
-            <div>
-              <label className="block text-gray-700 mb-2">Message</label>
+            <motion.div whileFocus={{ scale: 1.02 }}>
+              <label className="block text-gray-700 mb-2 font-medium">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A085]"
+                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A085] shadow-sm"
                 placeholder="Write your message"
               ></textarea>
-            </div>
+            </motion.div>
 
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(22,160,133,0.4)" }}
               whileTap={{ scale: 0.95 }}
               type="submit"
-              className="w-full bg-[#16A085] text-white py-3 rounded-lg font-semibold hover:bg-[#13856E] transition"
+              className="w-full bg-[#16A085] text-white py-3 rounded-lg font-semibold hover:bg-[#13856E] transition-all"
             >
               Send Message
             </motion.button>
           </form>
+
+          {/* Official Info Section */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-12 border-t pt-8 text-gray-700"
+          >
+            <h2 className="text-xl font-semibold mb-3 text-[#2C3E50]">Official Contact</h2>
+            <p className="mb-1"><strong>Address:</strong> Sikkim Tourism Office, Gangtok, Sikkim, India</p>
+            <p className="mb-1"><strong>Email:</strong> support@monastery360.gov.in</p>
+            <p className="mb-1"><strong>Phone:</strong> +91 98765 43210</p>
+            <p className="mb-1"><strong>Office Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM</p>
+          </motion.div>
+
+          {/* Footer Note */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-6 text-center text-gray-500 text-sm"
+          >
+            Monastery360 is an official digital heritage initiative under Sikkim Tourism.
+          </motion.p>
         </motion.div>
       </div>
     </section>
