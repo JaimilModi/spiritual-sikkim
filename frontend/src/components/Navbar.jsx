@@ -10,9 +10,12 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Monasteries", path: "/monasteries" },
+    { name: "Explore", path: "/eexplore" },
     { name: "Events", path: "/events" },
+    { name: "Virtual Tour", path: "/virtualtour" },
+    { name: "Visit", path: "/visit" },
     { name: "Trip", path: "/trip" },
-    { name: "Contact", path: "/contact" },
+    { name: "About", path: "/about" },
   ];
 
   const [isScrolled, setIsScrolled] = React.useState(false);

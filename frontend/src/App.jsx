@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Monasteries from "./pages/Monasteries";
 import Events from "./pages/Events";
 import Trip from "./pages/Trip";
-import Contact from "./pages/Contact";
+import About from "./pages/About";
 import Nathula from "./locations/Nathula";
 import Ravangla from "./locations/Ravangla";
 import Ranka from "./locations/Ranka";
@@ -19,7 +19,7 @@ function App() {
           <Route path="/monasteries" element={<Monasteries />} />
           <Route path="/events" element={<Events />} />
           <Route path="/trip" element={<Trip />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/About" element={<About />} />
 
           <Route path="/location/nathula" element={<Nathula />} />
           <Route path="/location/ravangla" element={<Ravangla />} />

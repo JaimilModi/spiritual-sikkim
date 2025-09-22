@@ -1,5 +1,4 @@
 import Hero from "../components/Hero";
-import About from "../components/About";
 import Gallery from "../components/Gallery";
 import Highlights from "../components/Highlights";
 import Destinations from "../components/Destinations";
@@ -19,7 +18,6 @@ const Home = () => {
       <TourPackages />
       <Testimonials />
       <CTA />
-      <About />
     </div>
   );
 };
