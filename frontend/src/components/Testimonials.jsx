@@ -5,14 +5,27 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // Example testimonial images
-import user1 from "../assets/image3.png";
-import user2 from "../assets/image4.png";
-import user3 from "../assets/image5.png";
+import user1 from "../assets/avatar.png";
+import user2 from "../assets/avatar.png";
+import user3 from "../assets/avatar.png";
 
 const testimonials = [
-  { name: "Amit Sharma", img: user1, review: "An unforgettable journey through Sikkim's monasteries and mountains!" },
-  { name: "Neha Singh", img: user2, review: "Beautiful landscapes and rich culture, highly recommended!" },
-  { name: "Rohit Verma", img: user3, review: "Excellent trip organization and breathtaking views everywhere!" },
+  {
+    name: "Amit Sharma",
+    img: user1,
+    review:
+      "An unforgettable journey through Sikkim's monasteries and mountains!",
+  },
+  {
+    name: "Neha Singh",
+    img: user2,
+    review: "Beautiful landscapes and rich culture, highly recommended!",
+  },
+  {
+    name: "Rohit Verma",
+    img: user3,
+    review: "Excellent trip organization and breathtaking views everywhere!",
+  },
 ];
 
 const Testimonials = () => {

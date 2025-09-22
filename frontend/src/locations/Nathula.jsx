@@ -19,8 +19,8 @@ const Nathula = () => {
 It connects India with the Tibet Autonomous Region of China and was part of the historic Silk Route. 
 Tourists often visit to witness the breathtaking landscapes and to explore the Indo-China border area. 
 Special permits are required for foreign nationals.`}
-      images={[nathulaImg1, nathulaImg2]}
-      modelUrl="/Nathula_Pass_Complex.glb"
+      images={[nathulaImg1, nathulaImg2]} // For page 2 carousel
+      modelUrl="/Nathula_Pass_Complex.glb" // For page 1 3D model
     />
   );
 };

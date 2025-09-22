@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Nathula from "./locations/Nathula";
 import Ravangla from "./locations/Ravangla";
 import Ranka from "./locations/Ranka";
+import Namgyal from "./locations/Namgyal";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/location/nathula" element={<Nathula />} />
           <Route path="/location/ravangla" element={<Ravangla />} />
           <Route path="/location/ranka" element={<Ranka />} />
+          <Route path="/location/namgyal" element={<Namgyal />} />
         </Route>
       </Routes>
     </Router>

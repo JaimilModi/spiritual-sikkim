@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import nathulaImg from "../assets/Nathula-Pass.png";
 import ravanglaImg from "../assets/Ravangla-buddga-park.png";
 import rankaImg from "../assets/ranka_monastery.png";
-import gangtokImg from "../assets/landing_image.png";
+import namgyalImg from "../assets/Namgyal-Institute-of-Tibetology-front.png";
 
 const locationsData = [
   {
@@ -29,10 +29,11 @@ const locationsData = [
     imageUrl: rankaImg,
   },
   {
-    id: "gangtok",
-    name: "Gangtok City View",
-    description: "Panoramic view of Gangtok city amidst mountains and rivers.",
-    imageUrl: gangtokImg,
+    id: "namgyal",
+    name: "Namgyal Institute of Tibetology",
+    description:
+      "Renowned institute and museum dedicated to Tibetan culture and heritage.",
+    imageUrl: namgyalImg,
   },
 ];
 
