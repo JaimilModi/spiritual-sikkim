@@ -6,21 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FiArrowLeft,
   FiMaximize,
-  FiMinimize,
   FiChevronLeft,
   FiChevronRight,
 } from "react-icons/fi";
 
-// Model Viewer Component with auto-rotation
 const ModelViewer = ({ modelUrl, fullscreen }) => {
   const gltf = useGLTF(modelUrl);
   const ref = useRef();
   const scale = fullscreen ? 2.5 : 1.8;
 
-  // Rotate model infinitely
   useFrame(() => {
     if (ref.current) {
-      ref.current.rotation.y += 0.005; // rotation speed
+      ref.current.rotation.y += 0.005;
     }
   });
 
@@ -35,6 +32,7 @@ const LocationTemplate = ({
   locationInfo,
   specialityPoints = [],
   detailedHistory = "",
+  mapUrl,
 }) => {
   const navigate = useNavigate();
   const [fullscreen, setFullscreen] = useState(false);
@@ -42,7 +40,6 @@ const LocationTemplate = ({
 
   const totalImages = images.length;
 
-  // Auto-play images every 3 seconds
   useEffect(() => {
     if (totalImages > 1) {
       const interval = setInterval(() => {
@@ -53,24 +50,41 @@ const LocationTemplate = ({
   }, [totalImages]);
 
   const handleBack = () => {
-    if (fullscreen) setFullscreen(false);
-    else navigate(-1);
+    if (fullscreen) {
+      setFullscreen(false);
+    } else {
+      navigate("/monasteries");
+    }
   };
 
-  // Modern color palette
-  const primaryColor = "#1F2937"; // dark grayish blue
-  const accentColor = "#3B82F6"; // soft blue
-  const bgColor = "#F3F4F6"; // light gray
-  const cardBg = "#FFFFFF"; // white cards
+  // Theme colors
+  const primaryColor = "#2C3E50";
+  const accentColor = "#3AAFA9";
+  const bgColor = "#F3F4F6";
+  const cardBg = "#FFFFFF";
 
   return (
     <div
-      className={`min-h-screen`}
+      className="min-h-screen relative"
       style={{ backgroundColor: bgColor, paddingTop: "6rem" }}
     >
-      {/* ----------- Page 1: Description + 3D Model ----------- */}
+      {/* Back Button */}
+      <button
+        onClick={handleBack}
+        className="fixed top-20 left-4 z-[9999] flex items-center gap-2 px-4 py-2 rounded-full shadow hover:brightness-105 transition"
+        style={{ backgroundColor: "white" }}
+      >
+        <FiArrowLeft className="text-lg" style={{ color: accentColor }} />
+        <span
+          className="hidden sm:inline font-medium"
+          style={{ color: primaryColor }}
+        >
+          Back
+        </span>
+      </button>
+
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-10 p-6">
-        {/* Left side - description */}
+        {/* Left Panel */}
         <div className="md:w-1/2 flex flex-col gap-6">
           <h1
             className="text-4xl md:text-5xl font-bold"
@@ -83,6 +97,7 @@ const LocationTemplate = ({
               {locationInfo}
             </p>
           )}
+
           {specialityPoints.length > 0 && (
             <div className="mt-2">
               <h3
@@ -101,12 +116,14 @@ const LocationTemplate = ({
               </ul>
             </div>
           )}
+
           <div
             className="mt-4 text-lg leading-relaxed"
             style={{ color: primaryColor }}
           >
             {description}
           </div>
+
           {detailedHistory && (
             <div
               className="mt-6 p-6 rounded-xl shadow-lg"
@@ -121,9 +138,8 @@ const LocationTemplate = ({
           )}
         </div>
 
-        {/* Right side - 3D Model */}
+        {/* 3D Model Panel */}
         <div className="md:w-1/2 relative w-full h-[500px] md:h-[600px] rounded-xl shadow-lg bg-white">
-          {/* Fullscreen button */}
           {!fullscreen && modelUrl && (
             <button
               onClick={() => setFullscreen(true)}
@@ -143,22 +159,22 @@ const LocationTemplate = ({
         </div>
       </div>
 
-      {/* Fullscreen Overlay */}
+      {/* Fullscreen 3D */}
       {fullscreen && modelUrl && (
         <div
           className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 overflow-auto"
           style={{ backgroundColor: "rgba(243,244,246,0.95)" }}
         >
           <button
-            onClick={() => setFullscreen(false)}
-            className="absolute top-6 right-6 flex items-center gap-2 bg-white p-2 rounded-full shadow hover:bg-gray-100 transition"
+            onClick={handleBack}
+            className="absolute top-6 left-6 z-[9999] flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow hover:bg-gray-100 transition"
           >
-            <FiMinimize className="text-lg" style={{ color: accentColor }} />
+            <FiArrowLeft className="text-lg" style={{ color: accentColor }} />
             <span
-              className="hidden md:inline font-medium"
+              className="hidden sm:inline font-medium"
               style={{ color: primaryColor }}
             >
-              Close
+              Back
             </span>
           </button>
           <Canvas className="w-full h-[90vh] rounded-xl bg-white">
@@ -170,7 +186,7 @@ const LocationTemplate = ({
         </div>
       )}
 
-      {/* ----------- Page 2: Image Carousel ----------- */}
+      {/* Image Slider */}
       <div className="w-full py-20 flex justify-center">
         <div className="w-full max-w-4xl relative rounded-xl overflow-hidden shadow-lg bg-white">
           <AnimatePresence mode="wait">
@@ -186,7 +202,6 @@ const LocationTemplate = ({
             />
           </AnimatePresence>
 
-          {/* Carousel Arrows */}
           {totalImages > 1 && (
             <>
               <button
@@ -199,7 +214,7 @@ const LocationTemplate = ({
               >
                 <FiChevronLeft
                   className="text-2xl"
-                  style={{ color: accentColor }}
+                  style={{ color: primaryColor }}
                 />
               </button>
               <button
@@ -210,7 +225,7 @@ const LocationTemplate = ({
               >
                 <FiChevronRight
                   className="text-2xl"
-                  style={{ color: accentColor }}
+                  style={{ color: primaryColor }}
                 />
               </button>
             </>
@@ -218,21 +233,42 @@ const LocationTemplate = ({
         </div>
       </div>
 
-      {/* ----------- Page 3: Map + More Info ----------- */}
+      {/* Map & Action Buttons */}
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 p-6">
-        {/* Left side - Map placeholder */}
-        <div
-          className="md:w-1/2 w-full h-[500px] rounded-xl flex items-center justify-center"
-          style={{
-            backgroundColor: "#E5E7EB",
-            color: primaryColor,
-            fontSize: "1.25rem",
-          }}
-        >
-          Map here
-        </div>
+        {mapUrl ? (
+          <div className="md:w-1/2 w-full h-[500px] rounded-xl overflow-hidden relative">
+            <iframe
+              src={mapUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              title="Location Map"
+            ></iframe>
+            <a
+              href={mapUrl.replace("/embed", "")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-4 right-4 px-4 py-2 rounded-lg shadow transition"
+              style={{ backgroundColor: accentColor, color: "#FFFFFF" }}
+            >
+              Open in Google Maps
+            </a>
+          </div>
+        ) : (
+          <div
+            className="md:w-1/2 w-full h-[500px] rounded-xl flex items-center justify-center"
+            style={{
+              backgroundColor: "#E5E7EB",
+              color: primaryColor,
+              fontSize: "1.25rem",
+            }}
+          >
+            Map here
+          </div>
+        )}
 
-        {/* Right side - More description */}
         <div className="md:w-1/2 flex flex-col gap-6">
           <h2 className="text-3xl font-bold" style={{ color: primaryColor }}>
             More About {name}
@@ -243,12 +279,23 @@ const LocationTemplate = ({
           >
             {locationInfo || "Additional description of the place goes here."}
           </p>
-          <button
-            className="mt-4 px-6 py-3 rounded-xl font-semibold transition"
-            style={{ backgroundColor: accentColor, color: "#FFFFFF" }}
-          >
-            Plan a Tour
-          </button>
+          <div className="flex gap-4 mt-4">
+            <button
+              onClick={() => navigate("/tour")}
+              className="px-6 py-3 rounded-xl font-semibold transition cursor-pointer"
+              style={{ backgroundColor: accentColor, color: "#FFFFFF" }}
+            >
+              Plan a Tour
+            </button>
+            <button
+              onClick={() => navigate("/events")}
+              className="px-6 py-3 rounded-xl font-semibold transition cursor-pointer"
+              style={{ backgroundColor: "#10B981", color: "#FFFFFF" }}
+            >
+              View Cultural Events
+            </button>
+          </div>
+
           {detailedHistory && (
             <div
               className="mt-4 p-4 rounded-xl shadow whitespace-pre-line"

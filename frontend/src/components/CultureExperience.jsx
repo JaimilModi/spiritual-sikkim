@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Import navigation
 import image from "/src/assets/image3.png";
 
 const CultureExperience = () => {
+  const navigate = useNavigate(); // ✅ Hook for navigation
+
+  const handleExploreClick = () => {
+    navigate("/monasteries"); // ✅ Redirect to /monasteries
+  };
+
   return (
     <section className="py-20 px-6 md:px-16 bg-gray-50">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
@@ -23,7 +30,10 @@ const CultureExperience = () => {
             Immerse yourself in vibrant festivals, traditional dances, and
             serene monasteries. Every corner of Sikkim tells a story.
           </p>
-          <button className="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 animate-pulse">
+          <button
+            onClick={handleExploreClick} // ✅ Added onClick event
+            className="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 animate-pulse"
+          >
             Explore More
           </button>
         </div>

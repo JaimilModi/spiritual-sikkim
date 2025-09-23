@@ -10,6 +10,9 @@ import Nathula from "./locations/Nathula";
 import Ravangla from "./locations/Ravangla";
 import Ranka from "./locations/Ranka";
 import Namgyal from "./locations/Namgyal";
+import VirtualTour from "./pages/VirtualTour";
+import Visit from "./pages/Visit";
+import Explore from "./pages/Explore";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/trip" element={<Trip />} />
           <Route path="/About" element={<About />} />
+          <Route path="/virtualtour" element={<VirtualTour />} />
+          <Route path="/visit" element={<Visit />} />
+          <Route path="/explore" element={<Explore />} />
 
           <Route path="/location/nathula" element={<Nathula />} />
           <Route path="/location/ravangla" element={<Ravangla />} />

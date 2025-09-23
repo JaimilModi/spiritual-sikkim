@@ -23,7 +23,6 @@ const Contact = () => {
   return (
     <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-24 px-6 md:px-20">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-
         {/* Left: Official Illustration */}
         <motion.div
           initial={{ x: -80, opacity: 0 }}
@@ -54,14 +53,17 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-center text-gray-600 mb-12 max-w-md mx-auto">
-            Reach out to the Monastery360 team for any queries, feedback, or partnership inquiries.  
-            As an official initiative under Sikkim Tourism, your input is highly valued.
+            Reach out to the Spiritual Sikkim team for any queries, feedback, or
+            partnership inquiries. As an official initiative under Sikkim
+            Tourism, your input is highly valued.
           </p>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <motion.div whileFocus={{ scale: 1.02 }}>
-              <label className="block text-gray-700 mb-2 font-medium">Name</label>
+              <label className="block text-gray-700 mb-2 font-medium">
+                Name
+              </label>
               <input
                 type="text"
                 name="name"
@@ -74,7 +76,9 @@ const Contact = () => {
             </motion.div>
 
             <motion.div whileFocus={{ scale: 1.02 }}>
-              <label className="block text-gray-700 mb-2 font-medium">Email</label>
+              <label className="block text-gray-700 mb-2 font-medium">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -87,7 +91,9 @@ const Contact = () => {
             </motion.div>
 
             <motion.div whileFocus={{ scale: 1.02 }}>
-              <label className="block text-gray-700 mb-2 font-medium">Message</label>
+              <label className="block text-gray-700 mb-2 font-medium">
+                Message
+              </label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -100,7 +106,10 @@ const Contact = () => {
             </motion.div>
 
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(22,160,133,0.4)" }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 10px 20px rgba(22,160,133,0.4)",
+              }}
               whileTap={{ scale: 0.95 }}
               type="submit"
               className="w-full bg-[#16A085] text-white py-3 rounded-lg font-semibold hover:bg-[#13856E] transition-all"
@@ -117,11 +126,22 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-12 border-t pt-8 text-gray-700"
           >
-            <h2 className="text-xl font-semibold mb-3 text-[#2C3E50]">Official Contact</h2>
-            <p className="mb-1"><strong>Address:</strong> Sikkim Tourism Office, Gangtok, Sikkim, India</p>
-            <p className="mb-1"><strong>Email:</strong> support@monastery360.gov.in</p>
-            <p className="mb-1"><strong>Phone:</strong> +91 98765 43210</p>
-            <p className="mb-1"><strong>Office Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM</p>
+            <h2 className="text-xl font-semibold mb-3 text-[#2C3E50]">
+              Official Contact
+            </h2>
+            <p className="mb-1">
+              <strong>Address:</strong> Sikkim Tourism Office, Gangtok, Sikkim,
+              India
+            </p>
+            <p className="mb-1">
+              <strong>Email:</strong> support@spiritualsikkim.gov.in
+            </p>
+            <p className="mb-1">
+              <strong>Phone:</strong> +91 98765 43210
+            </p>
+            <p className="mb-1">
+              <strong>Office Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM
+            </p>
           </motion.div>
 
           {/* Footer Note */}
@@ -132,7 +152,8 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-6 text-center text-gray-500 text-sm"
           >
-            Monastery360 is an official digital heritage initiative under Sikkim Tourism.
+            Spiritual Sikkim is an official digital heritage initiative under
+            Sikkim Tourism.
           </motion.p>
         </motion.div>
       </div>

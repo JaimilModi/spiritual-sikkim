@@ -28,6 +28,7 @@ const Namgyal = () => {
       modelUrl="/Namgyal_Institute_of_Tibetology.glb"
       specialityPoints={specialityPoints}
       detailedHistory={detailedHistory}
+      mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28758.02477624413!2d88.598643!3d27.325201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e6a59cc3a3db61%3A0xa6b13caa3cd59adf!2sNamgyal%20Institute%20of%20Tibetology!5e0!3m2!1sen!2sin!4v1695386512345!5m2!1sen!2sin"
     />
   );
 };

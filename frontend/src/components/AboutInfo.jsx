@@ -1,4 +1,3 @@
-// src/components/AboutInfo.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import image1 from "../assets/image1.png"; // replace with your own
@@ -15,7 +14,7 @@ const AboutInfo = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold text-center mb-6 text-[#2C3E50]"
         >
-          About <span className="text-[#16A085]">Monastery360</span>
+          About <span className="text-[#16A085]">Spiritual Sikkim</span>
         </motion.h1>
 
         <motion.p
@@ -25,9 +24,8 @@ const AboutInfo = () => {
           viewport={{ once: true }}
           className="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
         >
-          A digital heritage platform dedicated to preserving and showcasing
-          the spiritual, historical, and cultural richness of Sikkim’s
-          monasteries.
+          A digital heritage platform dedicated to preserving and showcasing the
+          spiritual, historical, and cultural richness of Sikkim’s monasteries.
         </motion.p>
 
         {/* Mission & Vision */}
@@ -40,15 +38,15 @@ const AboutInfo = () => {
           >
             <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
             <p className="text-gray-600 mb-6">
-              To digitize and make accessible the cultural treasures of
-              Sikkim’s monasteries through immersive experiences, interactive
-              maps, and educational resources.
+              To digitize and make accessible the cultural treasures of Sikkim’s
+              monasteries through immersive experiences, interactive maps, and
+              educational resources.
             </p>
             <h2 className="text-2xl font-semibold mb-4">Our Vision</h2>
             <p className="text-gray-600">
-              We aim to preserve endangered heritage and bring global
-              awareness, ensuring that the legacy of Sikkim’s monasteries
-              inspires generations worldwide.
+              We aim to preserve endangered heritage and bring global awareness,
+              ensuring that the legacy of Sikkim’s monasteries inspires
+              generations worldwide.
             </p>
           </motion.div>
 
@@ -101,7 +99,7 @@ const AboutInfo = () => {
               desc: "Festival and ritual schedules with booking options.",
             },
             {
-              title: "AI chatbot Assistance",
+              title: "AI Chatbot Assistance",
               desc: "Categorization and quick access for tourists & researchers.",
             },
           ].map((f, i) => (
@@ -131,9 +129,9 @@ const AboutInfo = () => {
         >
           <h2 className="text-3xl font-bold mb-4 text-[#2C3E50]">Impact</h2>
           <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Monastery360 boosts tourism, preserves endangered cultural assets,
-            empowers local communities, and supports global educational and
-            spiritual exploration.
+            Spiritual Sikkim boosts tourism, preserves endangered cultural
+            assets, empowers local communities, and supports global educational
+            and spiritual exploration.
           </p>
         </motion.div>
       </div>
