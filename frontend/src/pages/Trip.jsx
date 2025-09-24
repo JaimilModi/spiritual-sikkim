@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// Sample images for trips
 import trip1 from "../assets/image3.png";
 import trip2 from "../assets/image4.png";
 import trip3 from "../assets/image5.png";
