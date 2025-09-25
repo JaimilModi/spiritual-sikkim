@@ -19,7 +19,7 @@ const CTA = () => {
       </p>
       <button
         onClick={handleClick}
-        className="px-10 py-4 bg-white text-indigo-600 font-bold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 animate-pulse"
+        className="px-10 py-4 bg-white text-indigo-600 cursor-pointer font-bold rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 animate-pulse"
       >
         Plan My Trip
       </button>

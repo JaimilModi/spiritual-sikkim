@@ -51,7 +51,7 @@ const months = ["All", "October", "November"];
 const Events = () => {
   const [selectedMonth, setSelectedMonth] = useState("All");
   const primaryColor = "#2C3E50";
-  const buttonColor = "#1F2A38"; // Slightly darker for buttons
+  const buttonColor = "#1F2A38";
 
   const filteredEvents = eventsData.filter((event) => {
     if (selectedMonth === "All") return true;
@@ -161,7 +161,7 @@ const Events = () => {
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
-                  className="mt-auto py-3 rounded-xl font-semibold transition"
+                  className="mt-auto py-3 rounded-xl cursor-pointer font-semibold transition"
                   style={{
                     backgroundColor: buttonColor,
                     color: "white",

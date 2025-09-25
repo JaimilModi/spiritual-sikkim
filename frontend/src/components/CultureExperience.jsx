@@ -32,7 +32,7 @@ const CultureExperience = () => {
           </p>
           <button
             onClick={handleExploreClick} // ✅ Added onClick event
-            className="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 animate-pulse"
+            className="px-8 py-3 cursor-pointer bg-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 animate-pulse"
           >
             Explore More
           </button>

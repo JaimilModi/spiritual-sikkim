@@ -101,7 +101,7 @@ const VirtualTour = () => {
       <div className="min-h-screen bg-gray-50 p-6 pt-24">
         <button
           onClick={() => setSelectedTour(null)}
-          className="mb-6 px-4 py-2 rounded flex items-center gap-2 fixed top-24 left-6 z-50 shadow transition hover:brightness-110"
+          className="mb-6 px-4 py-2 rounded flex cursor-pointer items-center gap-2 fixed top-24 left-6 z-50 shadow transition hover:brightness-110"
           style={{ backgroundColor: primaryColor, color: "white" }}
         >
           <FiArrowLeft /> Back
@@ -254,7 +254,7 @@ const VirtualTour = () => {
               </div>
               <motion.button
                 onClick={() => startTour(tour)}
-                className="mt-auto py-3 rounded-xl font-semibold transition"
+                className="mt-auto py-3 rounded-xl font-semibold cursor-pointer transition"
                 style={{
                   backgroundColor: buttonColor,
                   color: "white",

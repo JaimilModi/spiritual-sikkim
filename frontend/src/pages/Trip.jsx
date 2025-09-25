@@ -74,7 +74,7 @@ const Trip = () => {
                 <h3 className="text-2xl font-bold text-[#2C3E50]">{trip.title}</h3>
                 <p className="text-sm text-gray-500 mt-1">{trip.duration}</p>
                 <p className="text-gray-600 mt-4">{trip.desc}</p>
-                <button className="mt-6 w-full bg-[#16A085] text-white py-3 rounded-lg font-semibold hover:bg-[#13856E] transition">
+                <button className="mt-6 w-full bg-[#16A085] text-white py-3 cursor-pointer rounded-lg font-semibold hover:bg-[#13856E] transition">
                   Book Now
                 </button>
               </div>
