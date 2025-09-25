@@ -130,7 +130,7 @@ const Hero = () => {
       <div className="relative h-screen">
         <div className="sticky top-0 h-screen w-full z-20">
           <img
-            src="/landing_image-2.png"
+            src="/mountain_image.png"
             alt="Mountain"
             className="w-full h-full object-cover"
           />
